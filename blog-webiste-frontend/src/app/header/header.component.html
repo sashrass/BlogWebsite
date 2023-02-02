@@ -1,0 +1,43 @@
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="flex-grow-1">
+      <a aria-label="Home" class="logo" routerLink="/">
+        <svg
+          class="website-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#000000"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"
+          ></path>
+          <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+        </svg>
+        <span class="website-text"> Blog Website </span>
+      </a>
+    </div>
+    <div class="flex-grow-1 float-right">
+      <div *ngIf="isLoggedIn" ngbDropdown class="float-right">
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button (click)="goToUserProfile()" ngbDropdownItem>Profile</button>
+          <button (click)="logout()" ngbDropdownItem>Logout</button>
+        </div>
+        <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
+          <img
+            class="account-icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+          />
+          {{ username }}
+        </button>
+      </div>
+      <div *ngIf="!isLoggedIn">
+        <a routerLink="/sign-up" class="float-right sign-up mr-2">Sign up</a>
+        <a routerLink="/login" class="float-right login mr-2">Login</a>
+      </div>
+    </div>
+  </nav>
+</header>
